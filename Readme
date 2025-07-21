@@ -1,0 +1,36 @@
+ride_easy
+
+Firebase Admin SDK Integration: It initializes the Firebase Admin SDK to securely interact with your Firestore database. You must download your Firebase service account key (a JSON file) from your Firebase project settings and place it in the same directory as this server.js file.
+
+CORS Enabled: It uses the cors middleware to allow your React frontend (running on a different port) to make requests to this backend.
+
+API Endpoints:
+
+GET /api/ride-requests: Retrieves all ride requests that have a status of 'pending' from the artifacts/{appId}/public/data/rideRequests collection in Firestore.
+
+POST /api/ride-requests/:id/accept: Simulates a driver accepting a ride. It updates the status of a specific ride request to 'accepted' and adds driver details.
+
+POST /api/ride-requests/:id/complete: Simulates a driver completing a ride, updating its status to 'completed'.
+
+Setup Instructions: The console log provides detailed instructions on how to set up and run this Express server.
+
+To use this backend:
+
+Firebase Service Account: Go to your Firebase project console, navigate to "Project settings" -> "Service accounts," and click "Generate new private key." Download the JSON file and save it as serviceAccountKey.json in the same directory where you save this Express code.
+
+Node.js Environment: Make sure you have Node.js installed.
+
+Install Dependencies: In your terminal, navigate to the directory where you saved server.js and run:
+
+Bash
+
+npm init -y
+npm install express firebase-admin cors
+Run the Server:
+
+Bash
+
+node server.js
+You should see a message indicating that the server is listening on http://localhost:3001.
+
+This backend will now be ready to receive requests from your React application (or a separate driver app) and interact with your Firestore database.
